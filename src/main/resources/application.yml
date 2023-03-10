@@ -1,0 +1,23 @@
+spring:
+  jpa:
+    database: postgresql
+    show-sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        jdbc:
+          lob:
+            non_contextual_creation: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/AppProject
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  freemarker:
+    expose-request-attributes: true
+#api:
+#  address: org.postgresql.Driver
+
