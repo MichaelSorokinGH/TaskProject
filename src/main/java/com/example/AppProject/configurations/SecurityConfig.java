@@ -1,6 +1,6 @@
 package com.example.AppProject.configurations;
 
-import com.example.AppProject.service.CustomUserDetailsService;
+import com.example.AppProject.service.impl.CustomUserDetailsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -22,7 +22,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/", "/app/**", "/registration", "/user/**")
+                .antMatchers("/", "/task/**", "/registration", "/user/**")
                 .permitAll()
                 .anyRequest().authenticated()
                 .and()
@@ -43,6 +43,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder(8);
     }
-
-
 }
+
+

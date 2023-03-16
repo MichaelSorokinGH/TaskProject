@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>APPS</title>
+    <title>TASKS</title>
 </head>
 <body>
-<h1>APPS</h1><hr>
+<h1>TASKS</h1><hr>
 <h4>Авторизация</h4>
 <form action="/login" method="post">
     Эл. почта: <input type="email" name="username"><br><br>

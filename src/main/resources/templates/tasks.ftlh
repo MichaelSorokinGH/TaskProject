@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/html">
 <head>
-    <title>APPS</title>
+    <title>TASKS</title>
 </head>
 <body>
-<h1>APPS</h1>
+<h1>TASKS</h1>
 <hr>
 <#if user.email??>
     <h3>Имя пользователя: <i>${user.name}</i></h3>
@@ -15,6 +15,9 @@
     <#if user.isAdmin()>
         <a href="/admin">Панель администратора</a>
     </#if>
+    <#if user.isExecutor()>
+        <a href="/executor">Панель исполнителя</a>
+    </#if>
 <#else>
     <a href="/login">Войти</a></h1>
 </#if>
@@ -24,9 +27,9 @@
     Поиск по названию заявки: <input type="text" name="title">
     <input type="submit" value="Поиск"/>
 </form>
-<#list apps as app>
+<#list tasks as task>
     <div>
-        <p><b>${app.title}</b> ${app.price} руб. | <a href="/app/${app.id}">Подробности...</a></p>
+        <p><b>${task.title}</b> ${task.price} руб. | <a href="/task/${task.id}">Подробности...</a></p>
     </div>
 <#else>
     <h3/>Заявок нет</h3>
@@ -34,11 +37,11 @@
 <#if user.email??>
     <hr>
     <h3>Создать новую заявку</h3>
-    <form action="/app/create" method="post">
+    <form action="/task/create" method="post">
         Название заявки: <input type="text" name="title"/><br><br>
-        Описание заявки: <input type="text" name="description"/><br><br>
+        Детали обращения: <input type="text" name="description"/><br><br>
         Цена: <input type="number" name="price"/><br><br>
-        Город: <input type="text" name="city"/><br><br>
+        Адрес: <input type="text" name="address"/><br><br>
         <input type="hidden" name="_csrf" value="${_csrf.token}">
         <input type="submit" value="Добавить заявку"/>
     </form>

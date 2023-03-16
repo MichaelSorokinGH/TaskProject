@@ -1,4 +1,4 @@
-package com.example.AppProject.enums;
+package com.example.AppProject.models.enums;
 
 public enum Status {
 
